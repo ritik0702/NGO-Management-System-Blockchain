@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <title>NGO Collaboration Platform</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./stylesheets/style.css">
+
+</head>
+<script>
+    var username = window.location.search.substring(1).split("=")[1];
+    $(document).ready(function () {
+        $("#active_needs").click(function (e) {
+            window.location = "../dashboard?username=" + username;
+        });
+        $("#past_needs").click(function (e) {
+            window.location = window.location = "../pastneeds?username=" + username;
+        });
+        $("#new_need").click(function (e) {
+            window.location = window.location = "../createneed?username=" + username;
+        });
+        $("#pledge").click(function (e) {
+            window.location = "../dashboard?username=" + username;
+        });
+    });
+</script>
+
+<body class="body">
+    <div id="header" class="header">
+        NGO Collaboration Platform
+    </div>
+    <br/><br/>
+    <div class="menu">
+        What would you like to do?
+        <br/><br/>
+        <input type="button" value="View Active Needs" id="active_needs" class="pledgeButton" /><br/><br/>
+        <input type="button" value="View Past Needs" id="past_needs" class="pledgeButton" /><br/><br/>
+        <input type="button" value="Create a New Need" id="new_need" class="pledgeButton" /><br/><br/>
+        <input type="button" value="Pledge for a Need" id="pledge" class="pledgeButton" /><br/><br/>
+    </div>
+</body>
+
+</html>

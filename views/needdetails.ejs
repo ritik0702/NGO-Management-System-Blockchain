@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <title>NGO Collaboration Platform</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./stylesheets/style.css">
+
+</head>
+<script>
+    var data = [];
+    var needid = "";
+    $( window ).on( "load", function() {
+        var params = window.location.search.substring(1);
+        var username = getUsername();
+        needid = params.split("&")[1].split("=")[1];
+        var createdby = params.split("&")[2].split("=")[1];
+        var requiredqty = params.split("&")[3].split("=")[1];
+
+        $("#overviewdiv").append("<b>Need Id:</b> " + needid);
+        $("#overviewdiv").append("<br>");
+        $("#overviewdiv").append("<b>Created By:</b> " + createdby);
+        $("#overviewdiv").append("<br>");
+        $("#overviewdiv").append("<b>Username:</b> " + username);
+        $("#overviewdiv").append("<br>");
+        $("#overviewdiv").append("<b>Required Quantity:</b> " + requiredqty);
+        $("#overviewdiv").append("<br>");
+        $("#overviewdiv").append("<br>");
+
+        $("#back_to_home_page").click(function (e) {
+            window.location = "../menu?username=" + username;
+        });
+
+    });
+
+    function getUsername() {
+            var params = window.location.search.substring(1).split("&");
+
+            for (var i = 0; i < params.length; i++) {
+                var pair = params[i].split('=');
+                if (pair[0] === 'username' || pair[0] === 'uname' || pair[0] === 'ngo') {
+                    return pair[1];
+                }
+            }
+            return null;
+        }
+</script>
+
+<body class="body">
+
+            <div id="header" class="header">
+                NGO Collaboration Platform
+            </div>
+
+            <br/>
+            <div id="header2" class="header2">
+                Need Details
+            </div>
+            <p></p>
+
+            <div id="overviewdiv">
+            </div>
+            <%
+            if( pledgesdata && pledgesdata.length > 0 ){
+            %>
+            <table id="pledgestable" data-role="table" border="1" class="dashboardTable">
+                <thead>
+                    <tr>
+                        <th>Pledge ID</th>
+                        <th>Quantity</th>
+                        <th>Pledged By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (var i=0; i<pledgesdata.length; i++){ %>
+                        <tr>
+                            <td>
+                                <%= pledgesdata[i].pledge_id %>
+                            </td>
+                            <td>
+                                <%= pledgesdata[i].pledged_quantity %>
+                            </td>
+                            <td>
+                                <%= pledgesdata[i].pledged_by %>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+            <%
+            } else{
+                %>
+                <b>No pledges are for this need</b>
+                <%
+            }
+            %>
+            <div style="width:100%; float:left;">
+                    <br/>
+            </div>
+            
+            <div class="homePageButton" style="text-align: center">
+                    <input type="button" class="pledgeButton" value="Back to Home Page" id="back_to_home_page" />
+            </div>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <title>NGO Collaboration Platform</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./stylesheets/style.css">
+
+</head>
+<script>
+    $(document).ready(function () {
+        $("#login-submit").click(function (e) {
+            var isValid = validate($("#username").val(), $("#password").val());
+            if (!isValid) {
+                alert("Invalid username or password");
+            }
+        });
+    });
+
+    function validate(username, password) {
+        var creds = {};
+        creds["ngo1"] = "ngo1";
+        creds["ngo2"] = "ngo2";
+        creds["ngo3"] = "ngo3";
+        creds["ngo4"] = "ngo4";
+        if (password === creds[username]) {
+            window.location = "../menu?username=" + username;
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+
+<body class="body">
+    <div id="header" class="header">
+        NGO Collaboration Platform
+    </div>
+    <br>
+    <div class="form">
+        <form id="form_id" method="post" name="myform" style="display: block;">
+            <div class="form-group">
+                <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+            </div>
+            <input type="button" value="Login" class="loginButton" id="login-submit" />
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <title>NGO Collaboration Platform</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./stylesheets/style.css">
+
+    <script>
+        var data = {};
+        var username = getUsername();
+        $(document).ready(function () {
+            $("#back_to_home_page").click(function (e) {
+                window.location = "../menu?username=" + username;
+            });
+        });
+
+        function getUsername() {
+            var params = window.location.search.substring(1).split("&");
+
+            for (var i = 0; i < params.length; i++) {
+                var pair = params[i].split('=');
+                if (pair[0] === 'username' || pair[0] === 'uname' || pair[0] === 'ngo') {
+                    return pair[1];
+                }
+            }
+            return null;
+        }
+    </script>
+
+</head>
+
+<body class="body">
+    <div id="header" class="header">
+        NGO Collaboration Platform
+    </div>
+    <br/>
+
+    <div id="header2" class="header2">
+        Past Needs
+    </div>
+    <p></p>
+    <% if( needs && needs.length > 0 ) { %>
+        <table id="dashtable" data-role="table" border="1" class="dashboardTable">
+            <thead>
+                <tr>
+                    <th>Need ID</th>
+                    <th>Created By</th>
+                    <th>Created On</th>
+                    <th>Category</th>
+                    <th>Quanity Required</th>
+                    <th>Pledged</th>
+                    <th>Expected Date of Fullfillment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (var i=0; i<needs.length; i++){ %>
+                    <tr>
+                        <td>
+                            <%= needs[i].need_id %>
+                        </td>
+                        <td>
+                            <%= needs[i].created_by %>
+                        </td>
+                        <td>
+                            <%= needs[i].created_date %>
+                        </td>
+                        <td>
+                            <%= needs[i].need_category %>
+                        </td>
+                        <td>
+                            <%= needs[i].quantity %>
+                        </td>
+                        <td>
+                            <%= needs[i].pledged %>
+                        </td>
+                        <td>
+                            <%= needs[i].expected_fulfilment_date %>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+        <% } 
+    else{
+        %>
+            <h1>No past needs found</h1>
+            <%
+    }
+    %>
+                <div style="width:100%; float:left;">
+                    <br/>
+                </div>
+
+                <div class="homePageButton" style="text-align: center">
+                    <input type="button" class="pledgeButton" value="Back to Home Page" id="back_to_home_page" />
+                </div>
+
+</body>
+
+</html>

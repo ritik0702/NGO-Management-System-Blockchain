@@ -1,0 +1,205 @@
+.body {
+  height: 500px;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: LightCyan; */
+}
+
+.header {
+  margin-top: 10px;
+  font-size: 22px;
+  height: 40px;
+  width: 960px;
+  background-color: #1E90FF;
+  color: white;
+  padding-left: 5px;
+  padding-top: 3px;
+  text-align: center;
+}
+
+.form {
+  padding-top: 100px;
+  padding-left: 30%;
+  padding-right: 30%;
+  /* border:1px solid black; */
+}
+
+.loginButton{
+  margin-left: 37%;
+  font-size: 16px;
+  padding: 5px 30px;
+  border-radius: 4px;
+  /* border:1px solid red; */
+}
+
+.header2 {
+  font-size: 20px;
+  height: 40px;
+  width: 960px;
+  color: black;
+  padding-left: 5px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.dashboardTable {
+  float: left;
+  margin-left: 2px;
+  width: 100%;
+  /* padding: 2px; */
+  /*display: none;*/
+  border: 1px solid black;
+  /* table-layout: auto; */
+}
+
+.dashboardTable thead tr{
+  height: 35px;
+  background-color: #E0FFFF;
+}
+
+.dashboardTable tbody tr{
+  height: 30px;
+}
+
+.pledgeButton {
+  background-color: #e7e7e7;
+  border-radius: 8px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.pledgeButton:hover {
+  background-color: #1E90FF; 
+  color: white;
+}
+
+.menu{
+  /* border:1px solid black; */
+  text-align: center;
+}
+
+.menu input{
+  width: 180px;
+}
+
+.note{
+  color: black;
+  font-size: small;
+  font-style: italic;
+}
+
+.homePageButton {
+  float: left;
+  height: 40px;
+  width: 100%;
+}
+
+.newNeedForm {
+  padding-top: 20px; 
+  padding-left: 25%;
+  /* padding-right: 30%; */ 
+  /* border:1px solid black; */
+}
+
+.needTable tr{
+  height: 40px;
+  /* border:1px solid black; */
+}
+
+.needTable td{
+  padding-left: 15px;
+}
+
+.tabs {
+  height: 550px;
+  width: 960px;
+}
+
+.tabContainer {
+  height: 440px;
+  width: 100%;
+}
+
+.wrapper {
+  height: 50%;
+  width: 100%;
+  /* border:1px solid black; */
+}
+
+.wrapper1 {
+  height: 50%;
+  width: 100%;
+  display: none;
+  /* border:1px solid black; */
+}
+
+.predictedNeedTable {
+  height: 50%;
+  width: 100%;
+  display: none;
+  /* border:1px solid black; */
+}
+
+.buttonPanel {
+  height: 6%;
+  width: 100%;
+  text-align: center;
+  /* border:1px solid black; */
+}
+
+.ngocollabcontainer {
+  border: 1px solid green;
+  height: 100%;
+  width: 32%;
+  /* margin: 10px; */
+  display: none;
+}
+
+.gobutton {
+  background-color: #e7e7e7;
+  color: black;
+  width: 80px;
+  height: 24px;
+}
+
+select {
+  width: 200px;
+}
+
+img {
+  max-width: 100%;
+  max-height: 90%;
+  display: block;
+}
+
+.selectedRow {
+  background-color: lightskyblue;
+}
+
+.needContainer {
+  height: 100%;
+  width: 20%;
+  float: left;
+  /* padding: 2px; */
+  display: none;
+  border: 1px solid green;
+}
+
+.pledgeStatus {
+  height: 100%;
+  width: 20%;
+  float: left;
+  padding: 10px;
+  margin-left: 2px;
+  display: none;
+  border: 1px solid green;
+}
+
+th, td {
+  text-align: center
+}
+
+.boldlabel {
+  font-weight: bold;
+}
